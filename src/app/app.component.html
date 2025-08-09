@@ -1,0 +1,47 @@
+<header class="header">
+  <h2 class="logo">Nostromo crew</h2>
+</header>
+<main class="container">
+  <mat-sidenav-container class="app-container">
+  <!-- Sidebar -->
+  <mat-sidenav #sidenav [mode]="isMobile ? 'over' : 'side'" opened class="sidebar">
+    <mat-form-field appearance="fill" class="search">
+      <mat-label>Search</mat-label>
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput placeholder="Name or title">
+    </mat-form-field>
+
+    <mat-tab-group mat-stretch-tabs="false">
+      <mat-tab class="mat-tab" label="All">
+        <ng-template *ngIf="users$ | async as users">
+          <app-user-list [users]="users"></app-user-list>
+        </ng-template>
+        <app-user-list [users]="users$ | async"></app-user-list>
+      </mat-tab>
+      <mat-tab class="mat-tab" label="Female">
+        <app-user-list></app-user-list>
+      </mat-tab>
+      <mat-tab class="mat-tab" label="Male">
+        <app-user-list></app-user-list>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-sidenav>
+
+  <!-- Main Content -->
+  <mat-sidenav-content class="content">
+    <button *ngIf="isMobile" mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <ng-template *ngIf="user; else noUser">
+      <app-user-description></app-user-description>
+    </ng-template>
+
+    <ng-template #noUser>
+      <div class="no-user">
+        <img src="../assets/logo-xl.png" alt="">
+      </div>
+    </ng-template>
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</main>

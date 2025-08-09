@@ -1,0 +1,73 @@
+
+.header {
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.4);
+  background-color: rgba(24, 55, 73, 1);
+}
+
+.logo{
+  padding: 20px;
+  color: rgba(255, 255, 255, 1);
+  font-family: Montserrat-Medium;
+  font-size: 21px;
+  font-weight: 500;
+  font-style: medium;
+  margin-bottom: 0px !important;
+}
+
+
+.app-container {
+  height: 100vh;
+}
+
+.sidebar {
+  width: 321px;
+}
+
+.search {
+  width: 321px;
+}
+.search .mat-input-element {
+  border-radius: 0;
+  border: none;
+  outline: none;
+}
+
+.no-user{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 64px);
+}
+.content {
+  padding: 20px;
+  background-color: #F2F7FA;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.field {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.actions button {
+  margin-right: 8px;
+}
+
+mat-list-item.active {
+  background-color: #e6f0ff;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%; /* take more space on mobile */
+  }
+
+  .search{
+    width: 100%; /* full width on mobile */
+  }
+}
