@@ -1,0 +1,69 @@
+
+<ng-container *ngIf="(selectedUser$ | async) as user; else Loading">
+  <div class="profile">
+    <img [src]="user.image" alt="Arthur Dallas" class="avatar">
+    <h2>{{user.firstName + " " + user.lastName }}</h2>
+    <form [formGroup]="form" (ngSubmit)="onSave()" class="profile-form">
+      <div class="form-fields">
+
+        <mat-label>First name</mat-label>
+        <mat-form-field appearance="outline" class="field">
+          <input matInput [value]="user.firstName" formControlName="firstName" required>
+          <mat-icon *ngIf="!form.get('firstName')?.hasError('required') && !form.get('firstName')?.touched" matSuffix color="primary">check</mat-icon>
+          <span *ngIf="form.get('firstName')?.hasError('required')" matSuffix style="color: red; font-weight: bold; margin-left: 2px;">*</span>
+          <mat-error *ngIf="form.get('firstName')?.hasError('required')">
+            First name is required
+          </mat-error>
+        </mat-form-field> 
+
+        <mat-label>Last name</mat-label>
+        <mat-form-field appearance="outline" class="field">
+          <input matInput [value]="user.lastName" formControlName="lastName" required>
+          <mat-icon *ngIf="!form.get('lastName')?.hasError('required') && !form.get('lastName')?.touched" matSuffix color="primary">check</mat-icon>
+          <span *ngIf="form.get('lastName')?.hasError('required')" matSuffix style="color: red; font-weight: bold; margin-left: 2px;">*</span>
+          <mat-error *ngIf="form.get('lastName')?.hasError('required')">
+            Last name is required
+          </mat-error>
+        </mat-form-field>
+  
+        <mat-label>Title</mat-label>
+        <mat-form-field appearance="outline" class="field">
+          <input matInput [value]="user.role" formControlName="role" required>
+          <mat-icon *ngIf="!form.get('role')?.hasError('required') && !form.get('role')?.touched" matSuffix color="primary">check</mat-icon>
+          <span *ngIf="form.get('role')?.hasError('required')" matSuffix style="color: red; font-weight: bold; margin-left: 2px;">*</span>
+          <mat-error *ngIf="form.get('role')?.hasError('required')">
+            Title is required
+          </mat-error>
+        </mat-form-field>
+
+        <mat-label>Email</mat-label>
+        <mat-form-field appearance="outline" class="field">
+          <input matInput type="email" [value]="user.email" formControlName="email" required>
+          <mat-icon *ngIf="!form.get('email')?.hasError('required') && !form.get('email')?.touched" matSuffix color="primary">check</mat-icon>
+          <span *ngIf="form.get('email')?.hasError('required')" matSuffix style="color: red; font-weight: bold; margin-left: 2px;">*</span>
+          <mat-error *ngIf="form.get('email')?.hasError('required')">
+            Email is required
+          </mat-error>
+          <mat-error *ngIf="form.get('email')?.hasError('email') && !form.get('email')?.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+      </div>
+    
+      <div class="actions" *ngIf="form.dirty">
+        <div class="buttons">
+          <button mat-stroked-button color="primary" type="button">Cancel</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+        </div>
+        <div class="actions__error-message" *ngIf="form.invalid">Please fill in all required fields</div>
+      </div>
+    </form>
+  </div>
+</ng-container>
+
+
+<ng-template #Loading>
+  <div class="loading">
+    <p>Loading user details...</p>
+  </div>
+</ng-template>

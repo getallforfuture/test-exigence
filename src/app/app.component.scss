@@ -7,7 +7,7 @@
 .logo{
   padding: 20px;
   color: rgba(255, 255, 255, 1);
-  font-family: Montserrat-Medium;
+  font-family: "Montserrat", sans-serif;
   font-size: 21px;
   font-weight: 500;
   font-style: medium;
@@ -41,21 +41,27 @@
 .content {
   padding: 20px;
   background-color: #F2F7FA;
+  display: flex;
+  flex-direction: column;
 }
 
-.avatar {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
+.action-back {
+  width: 100%;
+  background: #fff; // or your desired color
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ddd;
+  position: sticky; // keeps it visible on scroll (optional)
+  top: 0;
+  z-index: 10;
 }
 
-.field {
-  display: block;
-  margin-bottom: 16px;
-}
-
-.actions button {
-  margin-right: 8px;
+.action-back button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 mat-list-item.active {

@@ -1,0 +1,49 @@
+.active {
+  box-shadow: 0 -1px 0 0 inset rgba(230, 230, 230, 1);
+  background-color: #3147fb;
+  color: rgba(255, 255, 255, 1) !important;
+}
+
+.name{
+  color: rgba(20, 40, 51, 1);
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  font-style: semibold;
+}
+
+.role{
+  opacity: 0.7;
+  color: rgba(20, 40, 51, 1);
+  font-family: "Montserrat", sans-serif;  
+  font-size: 11px;
+  font-weight: 500;
+  font-style: medium;
+}
+
+.title {
+  color: rgba(20, 40, 51, 1);
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  font-style: semibold;
+  padding-left: 20px;
+  padding-bottom: 12px;
+  padding-top: 20px;
+  box-shadow: 0 -1px 0 0 inset rgba(230, 230, 230, 1);
+  margin: 0;
+}
+
+.container {
+  padding: 20px;
+}
+
+.nothing-found {
+  padding: 20px;
+  color: rgba(253, 75, 28, 1);
+  font-family: 'Montserrat', sans-serif;  
+  font-size: 12px;
+  font-weight: 500;
+  font-style: medium;
+
+}

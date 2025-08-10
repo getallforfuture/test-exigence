@@ -1,0 +1,85 @@
+.profile {
+  padding: 20px;
+  padding-bottom: 0;
+  height: 90vh;
+}
+.avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.field {
+  display: block;
+  margin-bottom: 16px;
+}
+
+.actions button {
+  margin-right: 8px;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.form-fields {
+  flex: 1;
+  overflow-y: auto; /* allow scrolling for fields if content is tall */
+}
+
+.actions {
+  width: 90vw;
+  margin-left: -30px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border-top: 1px solid #ddd;
+  background: white;
+  position: sticky;
+  bottom: 0;
+}
+
+.actions .buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.actions div {
+  display: flex;
+  justify-content: center;
+  color: rgba(253, 75, 28, 1);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  font-style: medium;
+
+}
+
+@media (min-width: 600px) {
+  .actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100vw;
+
+    .buttons {
+      display: flex;
+      justify-content: flex-start;
+    }
+
+    span {
+      text-align: left;
+    }
+
+    &__error-message {
+      display: flex;
+      align-items: center;
+    }
+  }
+  
+}
+

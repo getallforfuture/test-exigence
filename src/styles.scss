@@ -9,7 +9,10 @@ body {
   padding: 0;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+  margin: 0; 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600; /* SemiBold */ }
 
 .mat-tab-header-pagination {
   display: none !important;
@@ -29,4 +32,46 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 .mat-form-field-appearance-fill .mat-form-field-flex {
   background-color: transparent !important;
+}
+
+.mat-list-item-content {
+  padding: 0 20px !important;
+  box-shadow: 0 -1px 0 0 inset rgba(230, 230, 230, 1) !important;
+
+}
+
+.mat-ink-bar{
+  background-color: rgba(0, 100, 255, 1) !important;
+}
+
+.mat-tab-list {
+  padding: 0 12px !important;
+}
+
+.mat-sidenav-content{
+  padding: 0 !important;
+}
+.mat-error{
+  display: flex !important;
+  justify-content: flex-end !important;
+}
+
+mat-label {
+  padding-left: 13px !important;
+  color: rgba(20, 40, 51, 1) !important;
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  font-style: medium;
+}
+
+.mat-input-element {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 600 !important; /* semi-bold */
+  color: #333 !important;
+}
+
+.mat-form-field-suffix {
+  top: 0 !important;
 }

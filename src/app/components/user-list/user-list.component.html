@@ -1,8 +1,40 @@
-<ng-container *ngIf="users !== null && users.length > 0">
-  <mat-list>
-    <mat-list-item *ngFor="let user of users">  <!--</mat-list-item> [class.active]="user.active">-->
-      <div matLine>{{ user.firstName }}</div>
-      <div matLine>{{ user.role }}</div>
-    </mat-list-item>
+<ng-container class="" *ngIf="users !== null">
+  <mat-list *ngIf="tabName === 'All' || tabName === 'Female'">
+    <h2 class="title">Female</h2>
+    <ng-container *ngIf="users.get('female')!.length > 0; else noFemaleUsers">
+      <mat-list-item 
+        *ngFor="let user of users.get('female')" 
+        [class.active]="selectedUser && user.id === selectedUser.id"
+        (click)="selectUser(user)"
+        [routerLink]="['/user-description', user.id]"
+      >
+        <div class="name" matLine>{{ user.firstName }}</div>
+        <div class="role" matLine>
+          <span>{{ user.role }}</span>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <ng-template #noFemaleUsers>
+      <div class="nothing-found">Nothing found</div>
+    </ng-template>
+  </mat-list>
+  <mat-list *ngIf="tabName === 'All' || tabName === 'Male'">
+    <h2 class="title">Male</h2>
+    <ng-container *ngIf="users.get('male')!.length > 0; else noMaleUsers">
+      <mat-list-item 
+        *ngFor="let user of users.get('male')" 
+        [class.active]="selectedUser && user.id === selectedUser.id"
+        (click)="selectUser(user)"
+        [routerLink]="['/user-description', user.id]"
+      >
+        <div class="name" matLine>{{ user.firstName }}</div>
+        <div class="role" matLine>
+          <span>{{ user.role }}</span>
+        </div>
+      </mat-list-item>
+    </ng-container>
+    <ng-template #noMaleUsers>
+      <div class="nothing-found">Nothing found</div>
+    </ng-template>
   </mat-list>
 </ng-container>
