@@ -50,12 +50,20 @@
         </mat-form-field>
       </div>
     
-      <div class="actions" *ngIf="form.dirty">
-        <div class="buttons">
+      <div class="actions" [class.no-padding-top]="saving" *ngIf="form.dirty">
+        <div class="buttons" *ngIf="!saving">
           <button mat-stroked-button color="primary" type="button">Cancel</button>
           <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
         </div>
-        <div class="actions__error-message" *ngIf="form.invalid">Please fill in all required fields</div>
+
+        <div class="actions__error-message" *ngIf="form.invalid && !saving">
+          Please fill in all required fields
+        </div>
+
+        <div class="loading"  *ngIf="saving">
+          <mat-progress-bar mode="indeterminate" color="primary"></mat-progress-bar>
+          <p>Saving...</p>
+        </div>
       </div>
     </form>
   </div>

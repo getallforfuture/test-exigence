@@ -58,6 +58,27 @@
   font-style: medium;
 
 }
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  p {
+    align-self: center;
+    padding-top: 20px;
+    opacity: 0.7;
+    color: rgba(20, 40, 51, 1);
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+  }
+}
+
+.no-padding-top {
+  padding-top: 0 !important;
+}
 
 @media (min-width: 600px) {
   .actions {
@@ -73,6 +94,14 @@
 
     span {
       text-align: left;
+    }
+
+    .loading {
+      width: 100vw;
+      
+      p{
+        align-self: flex-start;
+      }
     }
 
     &__error-message {

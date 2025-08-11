@@ -22,5 +22,12 @@ export const usersReducer = createReducer(
   on(UserActions.selectUser, (state, { userId }) => {
     const selectedUser = state.users.find(user => user.id === userId);
     return { ...state, selectedUser };
+  }),
+  on(UserActions.updateUser, (state, { user }) => {
+    const selectedUser = state.selectedUser;
+    if (!selectedUser) return state;
+    const updatedUser: User = { ...selectedUser, ...user };
+    const updatedUsers = state.users.map(u => u.id === selectedUser.id ? updatedUser : u);
+    return { ...state, users: updatedUsers, selectedUser: updatedUser };
   })
 );

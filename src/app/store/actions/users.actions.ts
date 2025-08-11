@@ -6,3 +6,4 @@ export const getUsersListSuccess = createAction('[Users] Get Users List Success'
 export const getUsersListFailure = createAction('[Counter] Get Users List Failure', props<{ error: any }>());
 
 export const selectUser = createAction('[Users] Select User', props<{ userId: string }>());
+export const updateUser = createAction('[Users] Update User', props<{ user: {firstName: string, lastName: string, role: string, email: string} }>());

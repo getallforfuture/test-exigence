@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Subject, takeUntil } from 'rxjs';
 import { UsersState } from 'src/app/store/reducers/users.reducer';
 import * as UserSelectors from 'src/app/store/selectors/users.selectors';
+import * as UserActions from 'src/app/store/actions/users.actions';
 
 @Component({
   selector: 'app-user-description',
@@ -14,6 +15,8 @@ export class UserDescriptionComponent implements OnInit, OnDestroy {
   form!: FormGroup;
   selectedUser$ = this.store.select(UserSelectors.selectSelectedUser);
   private destroy$ = new Subject<void>();
+  saving = false;
+  saveComplete = false;
 
   constructor(
     private store: Store<UsersState>,
@@ -39,15 +42,23 @@ export class UserDescriptionComponent implements OnInit, OnDestroy {
             role: user.role,
             email: user.email
           });
+
+          this.form.markAsPristine();
+          this.form.markAsUntouched();
         }
       });
   }
 
   onSave() {
-    if (this.form.valid) {
-      console.log('Updated user data:', this.form.value);
-      // this.store.dispatch(UserActions.updateUser({ user: this.form.value }));
-    }
+    if (this.form.invalid) return;
+
+    this.saving = true;
+
+    setTimeout(() => {
+      this.saving = false;
+      this.saveComplete = true;
+      this.store.dispatch(UserActions.updateUser({ user: this.form.value }));
+    }, 2000);
   }
 
   ngOnDestroy(): void {
